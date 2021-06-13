@@ -1,0 +1,108 @@
+{% extends "user/layout.html" %}
+
+{% block content  %}
+<head>
+
+    <style>
+        .text-color {
+          color: #d754a5;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+</head>
+<body>
+{% load static %}
+
+<main>
+
+  <section class="py-5 text-center">
+    <div class="row py-lg-5" style="background-color: #c8ebff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Заявки</h1>
+      </div>
+    </div>
+  </section>
+{% csrf_token %}
+
+{% if request.user.is_authenticated and request.user.is_superuser %}
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">ФИО</th>
+          <th scope="col">Телефон</th>
+          <th scope="col">Услуга</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Дата</th>
+          <th scope="col">Время</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in prod %}
+        <tr>
+          <th scope="row">{{ i.id }}</th>
+          <td>{{ i.fullname }}</td>
+          <td>{{ i.phone }}</td>
+          <td>{{ i.pricelist.name }}</td>
+          <td>{{ i.pricelist.price }}</td>
+          <td>{{ i.data | date:"d.m.Y" }}</td>
+          <td>{{ i.data | date:"h:m:s" }}</td>
+          <td class="text-center"><div class="btn-group" role="group" aria-label="">
+            <a href="editord/{{ i.id }}" class="btn btn-pink fw-bold">Изменить</a>
+            <a href="deleteord/{{ i.id }}" class="btn btn-pink fw-bold">Удалить</a>
+          </div></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">ФИО</th>
+          <th scope="col">Телефон</th>
+          <th scope="col">Услуга</th>
+          <th scope="col">Цена</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in prod %}
+        <tr>
+          <th scope="row">{{ i.id }}</th>
+          <td>{{ i.fullname }}</td>
+          <td>{{ i.phone }}</td>
+          <td>{{ i.pricelist.name }}</td>
+          <td>{{ i.pricelist.price }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+</div>
+
+</main>
+</body>
+
+{% endblock %}

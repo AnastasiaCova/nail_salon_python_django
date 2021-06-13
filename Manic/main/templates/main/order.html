@@ -1,0 +1,72 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+   <head>
+
+    <style>
+    .text-back {
+          color: #e8dcff;
+        }
+    .text-color {
+          color: #d754a5;
+        }
+    .btn-pink{
+      background-color:#d754a5;
+      color:white;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    </head>
+
+  <body>
+{% load static %}
+<section class="py-5">
+    <div class="row py-lg-5 text-center" style="background-color: #e8dcff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Запись</h1>
+      </div>
+    </div>
+    <div class="row py-lg-5 text-back" style="background-color: #e8dcff; ">
+        <div class="col-lg-8 mx-auto">
+            <form method="post" action="order">
+                 {% csrf_token %}
+                <div class="row container justify-content-center">
+                    <div class="col-md-5">
+                        {{ form.as_p }}
+                        <h4>{{ error }}</h4>
+                        <h2>&nbsp;</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center align-self-center">
+                        <button class="btn btn-pink fw-bold" type="submit">Оформить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+  </body>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{% endblock %}

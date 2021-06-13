@@ -1,0 +1,95 @@
+{% extends "main/layout.html" %}
+
+{% block content  %}
+<head>
+{% load static %}
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+          .img__container {
+      position: relative;
+      margin: 20px auto 30px auto;
+    }
+
+    .img__container>img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 0 6px #9E9E9E;
+      border: 4px solid #fff;
+    }
+
+    .img__description {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 1);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .img__header {
+      font-weight: bold;
+      font-size: 1.25em;
+    }
+    .col-lg-8{
+    background-color: rgba(255, 255, 255, 0.8)
+    }
+    </style>
+
+  </head>
+  <main>
+{% load static %}
+
+<section class="py-5 text-center">
+    <div class="row py-lg-5 text-white" style="background-color: #e8dcff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+          <img src='{%static 'main/logo22.png'%}' class="rounded" alt="..." width="700">
+      </div>
+    </div>
+</section>
+
+<div class="container">
+   <div class="row mb-2">
+    <div class="col-md-6 d-flex align-items-stretch">
+      <div class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static align-self-center text-center">
+            <h2 class="fw-dark">О салоне</h2>
+            <p class="text-dark">У феи Крестной — там, где за качественной процедурой, вы окажетесь в волшебной атмосфере и окунетесь в настоящую сказку.</p>
+            <p class="text-dark">Мы постарались создать все условия для Вашего удобства и комфорта. Каждый может не только сделать маникюр и педикюр,
+                но также выпить ароматный чай и насладиться просмотром любимого фильма.</p>
+            <p class="text-dark">Мы проводим несколько этапов стерилизации и дезинфекции инструментов, все расходные материалы используются однократно.
+                Каждый наш гость найдёт по вкусу для себя ту услугу, которая подойдёт именно ему. У феи Крестной — это фееричный маникюр и педикюр, о котором вы всегда мечтали.</p>
+            <p class="lead"><a href="/main/price" class="btn btn-pink">Посмотреть услуги</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-stretch">
+      <div class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <img src="{%static 'main/salon.jpg'%}" class="card-img" alt="...">
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+
+</main>
+
+
+    
+{% endblock %}

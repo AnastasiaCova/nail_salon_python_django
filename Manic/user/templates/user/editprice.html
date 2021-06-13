@@ -1,0 +1,54 @@
+{% extends "user/layout.html" %}
+
+{% block content  %}
+<head>
+  <style>
+          .text-back {
+          color: #c8ebff;
+        }
+          .text-color {
+            color: #d754a5;
+          }
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+  </style>
+</head>
+
+<body>
+<main class="container">
+{% load static %}
+  <section class="py-8 text-center">
+    <div class="row py-lg-5" style="background-color: #c8ebff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Редактирование</h1>
+      </div>
+    </div>
+    <div class="row py-lg-5 text-back" style="background-color: #c8ebff; ">
+      <div class="col-lg-8 mx-auto">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+          <h6>&nbsp;</h6>
+          <a href="/user/price" class="btn btn-pink fw-bold">Назад</a>
+          <button class="btn btn-pink fw-bold">Готово</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+
+{% endblock %}

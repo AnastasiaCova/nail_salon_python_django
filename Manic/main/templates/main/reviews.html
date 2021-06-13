@@ -1,0 +1,97 @@
+{% extends "main/layout.html" %}
+
+{% block content  %}
+<head>
+
+    <style>
+        .text-color {
+          color: #d754a5;
+        }
+        .text-back {
+          color: #e8dcff;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+</head>
+<body>
+{% load static %}
+
+<main>
+
+  <section class="py-5 text-center">
+    <div class="row py-lg-5" style="background-color: #e8dcff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Отзывы</h1>
+      </div>
+    </div>
+  </section>
+
+{% csrf_token %}
+    {% for i in prod %}
+<div class="container">
+    <div class="row">
+      <div class="col order-md-2">
+        <h4 class="featurette-heading">{{ i.name }}</h4>
+          <h6>&nbsp;</h6>
+        <p class="text-muted">{{ i.pricelist }}</p>
+        <p class="lead">{{ i.text }}</p>
+      <h6>&nbsp;</h6>
+        <p>{{ i.data | date:"d.m.Y" }}</p>
+      </div>
+      <div class="col-md-2">
+        <img class="img" src='{%static 'main/user.png'%}' height="150" ></img>
+      </div>
+    </div>
+</div>
+<h1>&nbsp;</h1>
+{% endfor %}
+
+<section class="py-5">
+    <div class="row py-lg-5 text-center" style="background-color: #e8dcff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-bold text-color">Оставить отзыв</h1>
+      </div>
+    </div>
+    <div class="row py-lg-5 text-back" style="background-color: #e8dcff; ">
+        <div class="col-lg-8 mx-auto">
+            <form method="post" action="reviews">
+                 {% csrf_token %}
+                <div class="row container justify-content-center">
+                    <div class="col-md-5">
+                        {{ form.as_p }}
+                        <h4>{{ error }}</h4>
+                        <h2>&nbsp;</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center align-self-center">
+                        <button class="btn btn-pink fw-bold" type="submit">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</main>
+</body>
+
+{% endblock %}

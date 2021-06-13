@@ -1,0 +1,74 @@
+{% extends "user/layout.html" %}
+
+{% block content  %}
+<head>
+
+    <style>
+    .text-back {
+          color: #c8ebff;
+        }
+        .text-color {
+          color: #d754a5;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    {% load static %}
+    <script src="{% url 'js-catalog'%}"></script>
+    <script src="{% static '/admin/js/core.js'%}"></script>
+    <script src="{% static 'admin/css/base.css'%}"></script>
+    <script src="{% static 'admin/css/widgets.css'%}"></script>
+
+</head>
+<body>
+
+<main>
+
+{% if request.user.is_authenticated and request.user.is_superuser %}
+  <section class="py-5">
+    <div class="row py-lg-5 text-center" style="background-color: #c8ebff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Запись</h1>
+      </div>
+    </div>
+    <div class="row py-lg-5 text-back" style="background-color: #c8ebff; ">
+        <div class="col-lg-8 mx-auto">
+            <form method="post" action="ordering">
+                 {% csrf_token %}
+                <div class="row container justify-content-center">
+                    <div class="col-md-5">
+                        {{ form.media }}
+                        {{ form.as_p }}
+                        <h4>{{ error }}</h4>
+                        <h2>&nbsp;</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center align-self-center">
+                        <button class="btn btn-pink fw-bold" type="submit">Оформить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </section>
+{% endif %}
+
+
+</div>
+
+</main>
+</body>
+
+{% endblock %}

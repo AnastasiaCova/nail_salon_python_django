@@ -1,0 +1,51 @@
+{% extends "user/layout.html" %}
+
+{% block content %}
+   <head>
+
+    <style>
+    .text-color {
+          color: #d754a5;
+        }
+    .btn-pink{
+      background-color:#d754a5;
+      color:white;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    </head>
+
+  <body>
+{% if request.user.is_authenticated and request.user.is_superuser %}
+  <section class="py-5 text-center">
+    <div class="row py-lg-5" style="background-color: #c8ebff;">
+      <div class="col p-4 d-flex flex-column position-static align-self-center text-center">
+        <h1 class="fw-bold text-color">Ваша запись успешно оформлена!</h1>
+        <h6>&nbsp;</h6>
+        <p class="lead"><a href="/user/ord" class="btn btn-pink fw-bold">На главную</a></p>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+  </body>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{% endblock %}

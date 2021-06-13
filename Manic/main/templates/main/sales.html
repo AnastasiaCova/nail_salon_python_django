@@ -1,0 +1,89 @@
+{% extends "main/layout.html" %}
+
+{% block content  %}
+<head>
+
+    <style>
+       .text-color {
+         color: #d754a5;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="product.css" rel="stylesheet">
+  </head>
+  <body>
+  {% load static %}
+<main>
+   <section class="py-5 text-center">
+    <div class="row py-lg-5" style="background-color: #e8dcff;">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-bold text-color">Акции</h1>
+      </div>
+    </div>
+  </section>
+
+    <div class="row">
+      <div class="col-md-7">
+          <figure class="text-end">
+            <h2 class="featurette-heading">Скидка 10% на День Рождения</h2>
+            <p class="lead">Скидка 10% всем клиентам за 3 дня до и 3 дня после дня рождения на все услуги студии</p>
+          <figure/>
+      </div>
+      <div class="col-md-2">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src='{%static 'main/bdy.jpg'%}' class="rounded" alt="..." xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+      </div>
+    </div>
+    <h1>&nbsp;</h1>
+    <div class="row">
+      <div class="col-md-7">
+          <figure class="text-end">
+            <h2 class="featurette-heading">Педикюр за 900 руб!</h2>
+            <p class="lead">Cтильный и модный педикюр за 900₽ вместо 1400₽ при онлайн записи по промокоду</p>
+            <p class="lead">Промокод: 2LPF1</p>
+          <figure/>
+      </div>
+      <div class="col-md-2">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src='{%static 'main/p11.jpg'%}' class="rounded" alt="..." xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#eee"/></img>
+      </div>
+    </div>
+    <h1>&nbsp;</h1>
+    <div class="row">
+      <div class="col-md-7">
+          <figure class="text-end">
+            <h2 class="featurette-heading">Маникюр за 400 руб!</h2>
+            <p class="lead">Cтильный и модный маникюр без покрытия за 400₽ вместо 900₽ при онлайн записи по промокоду</p>
+            <p class="lead">Промокод: 7KE44</p>
+          <figure/>
+      </div>
+      <div class="col-md-2">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src='{%static 'main/p5.jpg'%}' class="rounded" alt="..."  xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#eee"/></img>
+      </div>
+    </div>
+
+
+</main>
+
+
+
+  </body>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+{% endblock %}

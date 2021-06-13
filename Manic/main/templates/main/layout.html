@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>В гостях у Крестной</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <style>
+  .btn-pink{
+  background-color:#d754a5;
+  color:white;
+  }
+  </style>
+</head>
+<div>
+<body style="overflow-x:hidden">
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: secondary">
+    <div class='container-fluid'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-md-2"><p>+7 (812) 321-65-35 Ежедневно 10:00 - 20:00</p></div>
+        <a class="navbar-brand" href="/main/">
+          <img src='{%static 'main/logo1.png'%}' class="rounded" alt="..." width="300">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/main/price">Цены</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/main/sales">Акции</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/main/portfolio">Портфолио</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/main/news">Новости</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/main/reviews">Отзывы</a>
+            </li>
+          </ul>
+        </div>
+        <a href="/main/order" class="btn btn-pink fw-bold">Онлайн запись</a>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <a class="navbar-brand" href="https://www.instagram.com/">
+          <img src='{%static 'main/inst.png'%}' class="rounded" alt="..." width="50" height="50">
+        </a>
+    </div>
+  </nav>
+</div>
+{% block content  %}
+{% endblock %}
+</div>
+<div class="row fixed-bottom">
+    <div class="col"><p class="float-end mb-1"><a href="#" class="btn btn-pink fw-bold">Наверх</a></p></div>
+</div>
+
+<div class="container bg-white text-center py-5">
+    <div class="row justify-content-center text-muted">
+      <div class="col-md-2 align-self-center">+7 (812) 321-65-35 by Anastasia Cova</div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% extends "main/layout.html" %}
+
+{% block content  %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Blog Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
+
+</head>
+{% load static %}
+{% csrf_token %}
+    {% for i in prod %}
+    <div class="container row mb-2 p-4 p-md-5 mb-4 justify-content-center">
+        <div class="col-md-15">
+          <div class="row g-0 overflow-hidden flex-md-row mb-4 position-relative">
+            <div class="col p-4 d-flex flex-column">
+                <div class="row">
+                    <div class="col-md-5 align-self-center"><img class="bd-placeholder-img img-fluid" src='{{ i.picture.url }}' class="rounded" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/></div>
+                    <div class="col align-self-center">
+                        <h2 class="card-title">{{ i.name }}</h2>
+                        <h6 class="mb-0">{{ i.price }}</h6>
+                        <h6>&nbsp;</h6>
+                        <div class="row">
+                                <div class="form-group col-md-2 align-self-center">
+                                    <select class="form-control" name="numb" id="numb">
+                                        <option>{{ i.numb }}</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select>
+                                </div>
+                            <div class="col align-self-center"><p class="mb-0">шт</p></div>
+                        </div>
+                        <h6>&nbsp;</h6>
+                        <a href="/main/addtobasket/{{ i.id }}" class="btn btn-outline-dark fw-bold">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+            <div class="col align-self-center"><p class="lead"><a href="/main/product/{{ i.category.id }}" class="btn btn-sm btn-outline-dark fw-bold">Назад в меню</a></p></div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
