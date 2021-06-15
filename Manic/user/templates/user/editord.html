@@ -23,6 +23,13 @@
           }
         }
   </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
 </head>
 
 <body>
@@ -34,14 +41,35 @@
         <h1 class="fw-bold text-color">Редактирование</h1>
       </div>
     </div>
-    <div class="row py-lg-5 text-back" style="background-color: #c8ebff; ">
+    <div class="row py-lg-5 text-dark" style="background-color: #c8ebff; ">
       <div class="col-lg-8 mx-auto">
         <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-          <h6>&nbsp;</h6>
-            <a href="/user/ord" class="btn btn-pink fw-bold">Назад</a>
-            <button class="btn btn-pink fw-bold">Готово</button>
+             {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    {{ form.fullname }}
+                    <h5>&nbsp;</h5>
+                    {{ form.pricelist }}
+                    <h5>&nbsp;</h5>
+                    {{ form.phone }}
+                    <h5>&nbsp;</h5>
+                    <div class="form-group">
+                        <div class='input-group date text-dark' id='datetimepicker2'>
+                            {{ form.data }}
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <h5>&nbsp;</h5>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center align-self-center">
+                    <a href="/user/ord" class="btn btn-pink fw-bold">Назад</a>
+                    <button class="btn btn-pink fw-bold" type="submit">Готово</button>
+                </div>
+            </div>
         </form>
       </div>
     </div>
@@ -50,14 +78,16 @@
 
 </main>
 
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#" class="btn btn-sm btn-outline-dark fw-bold">Наверх</a>
-    </p>
-  </div>
-</footer>
-
+<script>
+    $(function () {
+        $('#datetimepicker2').datetimepicker(
+        {format: 'YYYY-MM-DD HH:mm:ss', locale: 'ru',
+        disabledTimeIntervals: [
+        [ moment().hour(0).minutes(0), moment().hour(8).minutes(0) ],
+        [ moment().hour(20).minutes(0), moment().hour(24).minutes(0) ]
+        ]});
+    });
+</script>
 </body>
 
 {% endblock %}

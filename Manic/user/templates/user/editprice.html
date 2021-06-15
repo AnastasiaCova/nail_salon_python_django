@@ -38,8 +38,12 @@
       <div class="col-lg-8 mx-auto">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-          <h6>&nbsp;</h6>
+            {{ form.name }}
+            <h6>&nbsp;</h6>
+            {{ form.price }}
+            <h6>&nbsp;</h6>
+            {{ form.picture }}
+            <h6>&nbsp;</h6>
           <a href="/user/price" class="btn btn-pink fw-bold">Назад</a>
           <button class="btn btn-pink fw-bold">Готово</button>
         </form>

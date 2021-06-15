@@ -37,14 +37,10 @@
 {% for mynews in prod %}
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col text-end">
+        <div class="col-md-4 text-end">
             <p class="text-muted">{{ mynews.data | date:"d.m.Y" }}</p>
             <h4>{{ mynews.new }}</h4>
             <h6>{{ mynews.text }}</h6>
-<!--                    <h2 class="card-title">{{ mynews.new }}</h2>-->
-<!--                    <a href="/main/news/{{ mynews.user.username }}"><span class="badge bg-primary">{{ mynews.user }}</span></a>-->
-<!--                    <h6>&nbsp;</h6>-->
-<!--                    <a href="/main/newscard/{{ mynews.id }}" class="btn btn-sm btn-outline-dark fw-bold">Читать далее</a>-->
         </div>
         <div class="col-md-4 align-self-center">
             <a><img class="img-fluid rounded mb-3 mb-md-0" src='{{ mynews.picture.url }}' alt=""></a>
@@ -55,31 +51,10 @@
 
   {% endfor %}
 
-<!--{% block pagination %}-->
-<!--    {% if is_paginated %}-->
-<!--      <div class="pagination">-->
-<!--        <span class="page-links">-->
-<!--            {% if page_obj.has_previous %}-->
-<!--                <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>-->
-<!--            {% endif %}-->
-<!--            <span class="page-current">-->
-<!--                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}-->
-<!--            </span>-->
-<!--            {% if page_obj.has_next %}-->
-<!--                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая</a>-->
-<!--            {% endif %}-->
-<!--        </span>-->
-<!--      </div>-->
-<!--    {% endif %}-->
-<!--{% endblock %}-->
 
 </div>
 
 
   </body>
-
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
 
 {% endblock %}

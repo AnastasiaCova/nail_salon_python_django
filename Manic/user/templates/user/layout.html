@@ -19,13 +19,12 @@
 
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: secondary">
-    <div class='container-fluid'>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/main/">
+        <a href="/main/">
           <img src='{%static 'main/logo1.png'%}' class="rounded" alt="..." width="300">
         </a>
         {% if request.user.is_authenticated and request.user.is_superuser %}
@@ -49,7 +48,6 @@
               <a class="nav-link" href="/user/login">Выйти</a>
             </li>
         </ul>
-    </div>
   </nav>
 </div>
 {% block content  %}

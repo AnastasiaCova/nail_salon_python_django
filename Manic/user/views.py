@@ -21,7 +21,6 @@ def Ordering(request):
     error = ''
     if request.method == 'POST':
         form = OrderForm(request.POST)
-
         if form.is_valid():
             form.save()
             return redirect('orderingdone')
@@ -29,7 +28,6 @@ def Ordering(request):
             error = 'Попробуйте еще раз'
 
     form = OrderForm()
-
     data = {
         'form': form,
         'error': error

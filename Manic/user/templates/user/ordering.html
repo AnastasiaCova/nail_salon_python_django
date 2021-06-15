@@ -25,10 +25,12 @@
       }
     </style>
     {% load static %}
-    <script src="{% url 'js-catalog'%}"></script>
-    <script src="{% static '/admin/js/core.js'%}"></script>
-    <script src="{% static 'admin/css/base.css'%}"></script>
-    <script src="{% static 'admin/css/widgets.css'%}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
 </head>
 <body>
@@ -46,16 +48,28 @@
         <div class="col-lg-8 mx-auto">
             <form method="post" action="ordering">
                  {% csrf_token %}
-                <div class="row container justify-content-center">
+                <div class="row justify-content-center">
                     <div class="col-md-5">
-                        {{ form.media }}
-                        {{ form.as_p }}
-                        <h4>{{ error }}</h4>
+                        {{ form.fullname }}
+                        <h5>&nbsp;</h5>
+                        {{ form.pricelist }}
+                        <h5>&nbsp;</h5>
+                        {{ form.phone }}
+                        <h5>&nbsp;</h5>
+                        <div class="form-group">
+                            <div class='input-group date text-dark' id='datetimepicker2'>
+                                {{ form.data }}
+                                <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-dark">{{ error }}</h4>
                         <h2>&nbsp;</h2>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-6 text-center align-self-center">
+                    <div class="col-md-5 text-center align-self-center">
                         <button class="btn btn-pink fw-bold" type="submit">Оформить</button>
                     </div>
                 </div>
@@ -69,6 +83,16 @@
 </div>
 
 </main>
+<script>
+    $(function () {
+        $('#datetimepicker2').datetimepicker(
+        {format: 'YYYY-MM-DD HH:mm:ss', locale: 'ru',
+        disabledTimeIntervals: [
+        [ moment().hour(0).minutes(0), moment().hour(8).minutes(0) ],
+        [ moment().hour(20).minutes(0), moment().hour(24).minutes(0) ]
+        ]});
+    });
+</script>
 </body>
 
 {% endblock %}
