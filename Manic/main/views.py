@@ -3,7 +3,6 @@ from django.views import View
 from django.http import HttpResponseRedirect
 from .models import News, PriceList, Reviews
 from django.views.generic import ListView
-from django.shortcuts import get_list_or_404, get_object_or_404
 from .forms import OrderForm, ReviewForm
 
 
@@ -48,27 +47,6 @@ class Price(View):
     def get(self, request):
         prod = PriceList.objects.all()
         return render(request, 'main/price.html', {"prod": prod})
-
-
-def Review(request):
-    error = ''
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('orderdone')
-        else:
-            error = 'Попробуйте еще раз'
-
-    form = OrderForm()
-
-    data = {
-        'form': form,
-        'error': error
-    }
-
-    return render(request, 'main/order.html', data)
 
 
 def Sales(request):

@@ -19,8 +19,6 @@ urlpatterns = [
     path('editord/<int:id>', views.EditOrd, name = 'editord'),
     path('deleteprice/<int:id>', views.DeletePrice, name = 'deleteprice'),
     path('editprice/<int:id>', views.EditPrice, name = 'editprice'),
-
-    path('jsi18n', JavaScriptCatalog.as_view(), name = 'js-catalog'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

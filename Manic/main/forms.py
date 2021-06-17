@@ -1,9 +1,7 @@
 from .models import Order, Reviews
 from django.forms import ModelForm, Textarea, TextInput, DateInput, Select, DateField
 
-
 class OrderForm(ModelForm):
-
     class Meta:
         model = Order
         fields = ('fullname', 'pricelist', 'phone', 'data')
@@ -29,7 +27,6 @@ class OrderForm(ModelForm):
 
 
 class ReviewForm(ModelForm):
-
     class Meta:
         model = Reviews
         fields = ('name', 'email', 'pricelist', 'phone', 'text')
